@@ -5,12 +5,12 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+  
+// } from "react-router-dom";
 
 
 
@@ -53,24 +53,24 @@ function App() {
   }
   return (
     <>
-      <Router>
+      {/* <Router> */}
       <Navbar title="Textutils" aboutText="About" mode={mode} toggleMode={toggleMode}/>
       {/* <Alert alert={alert}/> */}
       <div className='container my-3' >
-      <Routes>
+      {/* <Routes>
           <Route path="/about">
             <About />
-          </Route>
+          </Route> */}
           
-          <Route path="/">
+          {/* <Route path="/"> */}
           <TextForm heading =" Enter the text to analyse below" mode={mode}/>
      
-          </Route>
-        </Routes>
+          {/* </Route>
+        </Routes> */}
       
 
       </div>
-      </Router>
+      {/* </Router> */}
   </>
   );
 }
