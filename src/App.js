@@ -5,6 +5,13 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 
@@ -16,11 +23,23 @@ function App() {
       setmode('dark')
       document.body.style.backgroundColor='grey'
       showAlert("dark mode has been enabled", "success")
+      // really cool idea for advertisments using set intervals and causing flashes
+      setInterval(() => {
+        
+        document.title="Textutils-Dark Mode"
+      }, 2000);
+      setInterval(() => {
+        document.title="Install Textutils now"
+      }, 1500);
     }
     else{
       setmode('light')
       document.body.style.backgroundColor='white'
       showAlert("light mode has been enabled", "success")
+      
+        
+        document.title="Textutils-Light Mode"
+      
     }
   }
   const showAlert=(message,type1)=>{
@@ -34,14 +53,24 @@ function App() {
   }
   return (
     <>
-    
+      <Router>
       <Navbar title="Textutils" aboutText="About" mode={mode} toggleMode={toggleMode}/>
-      <Alert alert={alert}/>
+      {/* <Alert alert={alert}/> */}
       <div className='container my-3' >
-      <TextForm heading =" Enter the text to analyse below" mode={mode}/>
-      {/* <About/> */}
+      <Routes>
+          <Route path="/about">
+            <About />
+          </Route>
+          
+          <Route path="/">
+          <TextForm heading =" Enter the text to analyse below" mode={mode}/>
+     
+          </Route>
+        </Routes>
+      
 
       </div>
+      </Router>
   </>
   );
 }
