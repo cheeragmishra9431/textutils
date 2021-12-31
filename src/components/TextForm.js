@@ -15,6 +15,11 @@ export default function TextForm(props) {
         
         setText(event.target.value)
     }
+    const handleCopy = () => {
+        var text = document.getElementById('exampleFormControlTextarea1');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+        }
     const [text, setText] = useState("");// we can put a placeholder here
     return (
     <>
@@ -26,6 +31,8 @@ export default function TextForm(props) {
             </div>
             <button className='btn mx-2 my-2 btn-primary'  onClick={handleUpClick}>Convert to upper-case</button>
             <button className='btn btn-primary mx-2' onClick={handleLoClick}>Convert to lower-case</button>
+            <button className= 'btn btn-primary mx-1' onClick={handleCopy}> Copy Text</button>
+
             
         </div>
         <div className="container my-2 " style={{color:props.mode==='dark'?'white':'black'}}>
